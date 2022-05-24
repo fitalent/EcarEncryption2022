@@ -26,6 +26,8 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }	
+}
+
 	afterEvaluate {
     publishing {
         publications {
@@ -38,7 +40,6 @@ android {
         }
     }
   }
-}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
