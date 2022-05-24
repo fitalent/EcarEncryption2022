@@ -26,14 +26,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
-}
-
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    provided 'com.google.code.gson:gson:2.8.0'
-}
-
 afterEvaluate {
     publishing {
         publications {
@@ -53,4 +45,10 @@ afterEvaluate {
             }
         }
     }
+ }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    provided 'com.google.code.gson:gson:2.8.0'
 }
