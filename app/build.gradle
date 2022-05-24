@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.ecar.encryption"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+        //让32位编译的.so文件能运行在64位的手机上（前提代码支持64位）
+        // 配置NDK
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+//task ndkBuild(type: Exec) {
+//    def ndkDir = project.plugins.findPlugin('com.android.application').sdkHandler.getNdkFolder()
+//    commandLine "$ndkDir/ndk-build.cmd", '-C', 'src/main/jni',
+//            "NDK_OUT=$buildDir/ndk/obj",
+//            "NDK_APP_DST_DIR=$buildDir/ndk/libs/\$(TARGET_ARCH_ABI)"
+//}
+//
+//task copyJniLibs(type: Copy) {
+//    from fileTree(dir: file(buildDir.absolutePath + '/ndk/libs'), include: '**/*.so')
+//    into file('src/main/jniLibs')
+//}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile project(':ecarnetso')
+}
