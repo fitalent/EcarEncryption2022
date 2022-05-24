@@ -33,3 +33,16 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided 'com.google.code.gson:gson:2.8.0'
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.ecaray64.cn'
+                artifactId = 'ecaray64'
+                version = '1.0.0'
+            }
+        }
+    }
+}
