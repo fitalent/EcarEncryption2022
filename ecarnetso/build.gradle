@@ -39,8 +39,16 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.ecaray64.cn'
-                artifactId = 'ecaray64'
+
+                groupId = 'com.github.example'
+                artifactId = 'example'
+                version = '1.0.0'
+            }
+            debug(MavenPublication) {
+                from components.debug
+
+                groupId = 'com.github.example'
+                artifactId = 'example'
                 version = '1.0.0'
             }
         }

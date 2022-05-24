@@ -18,16 +18,3 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.ecaray64.cn'
-                artifactId = 'ecaray64'
-                version = '1.0.0'
-            }
-        }
-    }
-}
