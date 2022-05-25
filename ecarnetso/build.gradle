@@ -26,28 +26,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-
-                groupId = 'com.github.example'
-                artifactId = 'example'
-                version = '1.0.0'
-            }
-            debug(MavenPublication) {
-                from components.debug
-
-                groupId = 'com.github.example'
-                artifactId = 'example'
-                version = '1.0.0'
-            }
-        }
-    }
- }
 }
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided 'com.google.code.gson:gson:2.8.0'
